@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom - Youth Guidance & Support Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <svg class="flower-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="20" r="15" fill="currentColor"/>
+                <circle cx="80" cy="50" r="15" fill="currentColor"/>
+                <circle cx="50" cy="80" r="15" fill="currentColor"/>
+                <circle cx="20" cy="50" r="15" fill="currentColor"/>
+                <circle cx="71" cy="29" r="15" fill="currentColor"/>
+                <circle cx="71" cy="71" r="15" fill="currentColor"/>
+                <circle cx="29" cy="71" r="15" fill="currentColor"/>
+                <circle cx="29" cy="29" r="15" fill="currentColor"/>
+                <circle cx="50" cy="50" r="14" fill="#F8FAFC"/>
+            </svg>
+            <span class="brand-name">Bloom</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-tab="home">Home</button>
+            <button class="nav-btn" data-tab="dashboard">Dashboard</button>
+            <button class="nav-btn" data-tab="learn">Learn & Guidance</button>
+            <button class="nav-btn" data-tab="chatbot">AI Companion</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="home-tab" class="tab-pane active">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles"></i> Designed for your real life
+                </div>
+                <div class="quote-card">
+                    <blockquote id="hero-quote">"It's not who I am underneath, but what I do that defines me."</blockquote>
+                    <p id="hero-author" class="quote-author">— Batman Begins (2005)</p>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="switchTab('dashboard')">Open Dashboard</button>
+                    <button class="btn btn-secondary" onclick="switchTab('chatbot')">Talk to Companion</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard-tab" class="tab-pane">
+            <div class="page-header">
+                <h2>Task Dashboard</h2>
+                <p>Prioritize your day step by step without feeling overwhelmed.</p>
+            </div>
+
+            <div class="task-form-card">
+                <form id="task-form">
+                    <input type="text" id="task-title" placeholder="What needs to get done?" required>
+                    <select id="task-priority">
+                        <option value="high">🔥 High Priority</option>
+                        <option value="medium" selected>⚡ Medium Priority</option>
+                        <option value="low">🌱 Low Priority</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><i data-lucide="plus"></i> Add Task</button>
+                </form>
+            </div>
+
+            <div class="task-grid">
+                <div class="task-column priority-high">
+                    <div class="column-header">
+                        <h3>High Priority</h3>
+                        <span class="badge" id="count-high">0</span>
+                    </div>
+                    <div class="task-list" id="list-high"></div>
+                </div>
+
+                <div class="task-column priority-medium">
+                    <div class="column-header">
+                        <h3>Medium Priority</h3>
+                        <span class="badge" id="count-medium">0</span>
+                    </div>
+                    <div class="task-list" id="list-medium"></div>
+                </div>
+
+                <div class="task-column priority-low">
+                    <div class="column-header">
+                        <h3>Low Priority</h3>
+                        <span class="badge" id="count-low">0</span>
+                    </div>
+                    <div class="task-list" id="list-low"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn-tab" class="tab-pane">
+            <div class="page-header">
+                <h2>Guidance & Learning</h2>
+                <p>Practical advice, video guides, and quick activities for your daily challenges.</p>
+            </div>
+
+            <div class="category-filter">
+                <button class="filter-btn active" data-cat="all">All Guidance</button>
+                <button class="filter-btn" data-cat="careers">Careers</button>
+                <button class="filter-btn" data-cat="personal">Personal Life</button>
+                <button class="filter-btn" data-cat="emotional">Emotional Support</button>
+                <button class="filter-btn" data-cat="physical">Physical & Sleep</button>
+            </div>
+
+            <div class="content-grid" id="learning-grid"></div>
+        </section>
+
+        <section id="chatbot-tab" class="tab-pane">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="companion-avatar">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <div>
+                        <h3>Bloom Companion</h3>
+                        <p class="status-online">● Available 24/7 • Safe & Judgment-Free</p>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        <div class="message-content">
+                            Hey there. I'm here anytime you need to vent, organize your thoughts, or get real advice on school, work, or life. What's on your mind today?
+                        </div>
+                    </div>
+                </div>
+
+                <form id="chat-form" class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Type your message or ask for advice..." required autocomplete="off">
+                    <button type="submit" class="btn btn-primary"><i data-lucide="send"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
